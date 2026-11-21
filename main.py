@@ -14,6 +14,8 @@ TEXT = (
 
 
 def main() -> None:
+    # The gate wants 1-280 code points, not only white space.
+    assert TEXT.strip(), "text must not be only white space"
     assert 1 <= len(TEXT) <= 280, len(TEXT)
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
